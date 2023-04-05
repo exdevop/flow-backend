@@ -1,0 +1,17 @@
+const http = require('http')
+const dotenv = require('dotenv')
+process.on('uncaughtException', err => {
+  console.log('Uncaught exception: Server shutting down')
+  console.log(err.name, err.message)
+  console.log(err)
+  process.exit(1)
+})
+dotenv.config({path: './.env'})
+const app = require('./app')
+let httpServer = http.createServer(app)
+const server = httpServer.listen(process.env.PORT, () => console.log('Server running on port: ', process.env.PORT))
+process.on('unhandledException', err => {
+  console.log('Unhandled exception: Server shutting down')
+  console.log(err)
+  server.close(err1 => process.exit(1))
+})

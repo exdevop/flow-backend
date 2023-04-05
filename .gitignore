@@ -1,0 +1,7 @@
+dev
+.idea
+.env
+.serverless
+node_modules
+*.http
+*.pkg
