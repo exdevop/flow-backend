@@ -37,7 +37,12 @@
 $ serverless config credentials --provider aws --key <...> --secret <>
 
 $ npm run deploy
-#Be sure to add environment variables used to AWS lambda console since they are not passed via Github
+#Be sure to add environment variables used to AWS lambda console since they are not passed via Github;
+PORT=8006
+MONGO_URL='mongodb://<Replace>/flowbackend'
+PROPERTY_LISTINGS_URL='https://flow-living-staging.s3.eu-west-1.amazonaws.com/public/assessment/listings.json'
+PROPERTY_AGENTS_URL='https://flow-living-staging.s3.eu-west-1.amazonaws.com/public/assessment/agents.json'
+ORGANISATIONS_URL='https://flow-living-staging.s3.eu-west-1.amazonaws.com/public/assessment/organisations.json'
 ```
 
 ## API test and explanation:
