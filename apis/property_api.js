@@ -8,10 +8,10 @@ router.get('/list/:offset/:limit', (req, res) => loadPropertyListings(req, res))
 router.get('/:id', (req, res) => {
   PropertyItem.findById(req.params.id).then(doc => res.json({doc})).catch(e => res.sendStatus(400))
 })
-router.get('list_by_agent/:agentID/:offset/:limit', (req, res) => {
+router.get('/list_by_agent/:agentID/:offset/:limit', (req, res) => {
   PropertyItem.find({agent: req.params.agentID}).populate('agent').skip(req.params.offset).limit(req.params.limit).then(doc => res.json({doc})).catch(e => res.sendStatus(400))
 })
-router.get('list_by_organisation/:organisationID/:offset/:limit', (req, res) => {
+router.get('/list_by_organisation/:organisationID/:offset/:limit', (req, res) => {
   PropertyItem.find({organisation: req.params.organisationID}).populate('organisation').skip(req.params.offset).limit(req.params.limit).then(doc => res.json({doc})).catch(e => res.sendStatus(400))
 })
 router.post('/create', validationMiddleware( appSchema.propertyItem, 'body'),(req, res) => {
