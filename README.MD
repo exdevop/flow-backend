@@ -72,7 +72,7 @@ GET https://flow-living-staging.s3.eu-west-1.amazonaws.com/public/assessment/org
 Accept: application/json
 
 ### New 'random.*' and 'isoTimestamp' variables
-POST http://127.0.0.1:8001/apiV1/listings/create
+POST https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/listings/create
 Content-Type: application/json
 
 {
@@ -93,7 +93,7 @@ Content-Type: application/json
 }
 
 ### New 'random.*' and 'isoTimestamp' variables
-PATCH http://127.0.0.1:8001/apiV1/listings/update/6422c2de92af8eba42aa90be
+PATCH https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/listings/update/6422c2de92af8eba42aa90be
 Content-Type: application/json
 
 {
@@ -113,24 +113,34 @@ Content-Type: application/json
     "images": ["{{$random.alphanumeric(10)}}","{{$random.alphanumeric(10)}}"]
 }
 
-### GET request with a header
-GET http://127.0.0.1:8001/api
-
-### GET Property listings
-GET http://127.0.0.1:8001/apiV1/listings/list/0/15
+### Test API
+GET https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/test
 Accept: application/json
 
-### GET Property Agents
-GET http://127.0.0.1:8001/apiV1/agents/list/0/15
+### GET Property listings
+GET https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/listings/list/0/15
+Accept: application/json
+
+### GET Property listings using agentID
+GET https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/listings/list_by_agent/0/15
+Accept: application/json
+
+### GET Property listings using organisation ID
+GET https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/listings/list_by_organisation/0/15
+Accept: application/json
+
+### GET Property Agents using organisation ID
+GET https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/agents/list_by_organisation/6421fe4f9cb79e46b2024d75/0/15
 Accept: application/json
 
 ### GET Organisations
-GET http://127.0.0.1:8001/apiV1/organisations/list/0/15
+GET https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/organisations/list/0/15
 Accept: application/json
 
 ### DELETE  Property listing
-DELETE http://127.0.0.1:8001/apiV1/listings/delete/6421fe4f9cb79e46b2024d75
+DELETE https://81vi931fh0.execute-api.eu-central-1.amazonaws.com/dev/apiV1/listings/delete/6421fe4f9cb79e46b2024d75
 Accept: application/json
+
 
 ```
 
